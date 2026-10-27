@@ -9,24 +9,122 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
   <style>
-    h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3rem;
-      text-align: left;
-      margin: 1rem 0;
-    }
-    p {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.25rem;
-      text-align: left;
-      margin: 1rem 0;
-    }
-    ul, ol {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
-      text-align: left;
-      margin: 1rem 0;
-    }
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  text-align: left;
+  margin-top: -3rem;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.75rem;
+  margin: 0.5rem 0;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: left;
+  margin: 0.5rem 0;
+}
+
+ul, ol {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: left;
+  margin: 0.5rem 0;
+  padding-left: 1.3rem;
+}
+
+h4 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+h5 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+  font-size: 0.7rem;
+  margin: 0.2rem 0 0.8rem 0;
+  font-style: italic;
+}
+
+.recipe-page {
+  display: none;
+}
+
+.recipe-page.active {
+  display: block;
+}
+.title_bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.view--full {
+  position: relative;
+}
+.markdown {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+.recipe-page {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.recipe-page img {
+  max-width: 35%;
+  height: auto;
+}
+
+.layout {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.columns {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.column {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.markdown {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+h1 {
+  margin-top: 0 !important;
+  margin-block-start: 0 !important;
+}
+
+.view--full .layout {
+  padding-top: 1 !important;
+  margin-top: -0px !important;
+}
+
+.view--full .columns,
+.view--full .column,
+.view--full .markdown {
+  padding-top: 1 !important;
+  margin-top: 1 !important;
+}
   </style>
 </head>
 <body class="environment trmnl">
@@ -37,6 +135,10 @@
           <div class="column">
             <div class="markdown">
               <h1>Tomato Soup</h1>
+              <h4>A classic comfort food | M. Yinseng</h4>
+              <h5>Source: https://yingsengeats.com/tomato-soup</h5>
+              <img width="300" id="recipe-image" style="float: right; margin-left: 1rem;" src="xyz">
+              <div class="recipe-page active">
               <p>Ingredients:</p>
               <ul>
                 <li>2 cups diced tomatoes</li>
@@ -45,15 +147,29 @@
                 <li>2 cloves garlic, minced</li>
                 <li>1 tsp dried oregano</li>
                 <li>Salt and pepper to taste</li>
+                <li>Chili powder</li>
+                <li>Optional, fresh chilies</li>
               </ul>
+            </div>
+            <div class="recipe-page">
               <p>Instructions:</p>
               <ol>
-                <li>In a large pot, sauté the onion and garlic until fragrant.</li>
+                <li>In a large pot, sauté the onion and garlic until fragrant. If using chilies, add them in after a minute.</li>
                 <li>Add the diced tomatoes and vegetable broth.</li>
                 <li>Bring to a boil, then reduce heat and simmer for 20 minutes.</li>
                 <li>Stir in the oregano, salt, and pepper.</li>
                 <li>Blend the soup until smooth (optional).</li>
               </ol>
+            </div>
+            <div class="recipe-page">
+              <h2>About This Recipe:</h2>
+              <p>
+                Tomato soup is a classic comfort food with a deep tomato flavor and a light combination of vegetables and herbs. 
+                My rendition uses vegetable broth, garlic, onion, and oregano, as well as my secret ingredient: chili powder!
+                The blend of spices adds a little bit of kick to an otherwise smooth soup and brings in that smokey flavor I love.
+                Whenever I'm sick, I add lots of chili powder (and sometimes some fresh chilies from my garden), and this soup clears
+                my sinuses up instantly. I'll be licking the bowl clean with snot pouring out of my nose... anyway, bon appetit!
+              </p>
             </div>
           </div>
         </div>
@@ -61,9 +177,36 @@
 
       <div class="title_bar">
         <img class="image" src="https://trmnl.com/images/plugins/trmnl--render.svg">
-        <span class="title">Practicing HTML with Recipes | R. Kiselev</span>
+        <span class="title">Practicing HTML/CSS/JS with Recipes | R. Kiselev</span>
       </div>
     </div>
   </div>
 </body>
+<script> //JS STARTS HERE
+  const pages = document.querySelectorAll(".recipe-page"); // finds all <> tagged with "recipe-page" and makes it a list
+  let currentPage = 0; // Starts page at index 0 (ingredients)
+
+  setInterval(() => {
+    pages[currentPage].classList.remove("active"); //removes active tag to old page
+    currentPage = (currentPage + 1) % pages.length; // modulo makes it go 0->1, 1->2, 2->0
+    pages[currentPage].classList.add("active"); // add active tag to current page
+  }, 10000); // 10k ms = 10 s
+
+  const images = [
+  "https://tse1.mm.bing.net/th/id/OIP.4Bcp-K9csOtHmSqDZm-29gHaE6?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+  "https://www.allrecipes.com/thmb/odV3ZiB5H-hWCLi2SV4lNdtJLhs=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/39544-Garden-Fresh-Tomato-Soup-DDMFS-4x3-b8e94cf7ab8e42f4b79042fc0df55546.jpg",
+  "https://th.bing.com/th/id/OSK.236e3758c891489d52cf8894253aa3c0?w=200&h=200&c=7&rs=1&qlt=90&o=6&pid=acf-sdl"
+];
+
+let imageIndex = 0; // starts count at index 0 (#1)
+const recipeImage = document.getElementById("recipe-image"); // finds all <> tagged with "recipe-image" and makes it a list
+
+recipeImage.src = images[imageIndex]; // sets the source for the recipe image to be the # place
+
+setInterval(() => {
+  imageIndex = (imageIndex + 1) % images.length; // increases index
+  recipeImage.src = images[imageIndex];
+}, 10000); /// 10k ms = 10 s
+</script>
+
 </html>
